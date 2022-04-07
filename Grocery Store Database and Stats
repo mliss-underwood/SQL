@@ -1,0 +1,32 @@
+CREATE TABLE grocery_store (id INTEGER PRIMARY KEY, name TEXT, aisle INTEGER, category TEXT, price INTEGER);
+INSERT INTO grocery_store VALUES (1, "milk", 4, "dairy", 4);
+INSERT INTO grocery_store VALUES (2, "ground beef", 3, "meat", 8);
+INSERT INTO grocery_store VALUES (3, "cat food", 6, "pet", 15);
+INSERT INTO grocery_store VALUES (4, "dog food", 6, "pet", 25);
+INSERT INTO grocery_store VALUES (5, "chicken", 3, "meat", 12);
+INSERT INTO grocery_store VALUES (6, "yogurt", 4, "dairy", 7);
+INSERT INTO grocery_store VALUES (7, "soup", 2, "canned", 3);
+INSERT INTO grocery_store VALUES (8, "canned veggies", 2, "canned", 2);
+INSERT INTO grocery_store VALUES (9, "frozen veggies", 5, "frozen", 5);
+INSERT INTO grocery_store VALUES (10, "ice cream", 5, "frozen", 5);
+INSERT INTO grocery_store VALUES (11, "pizza", 5, "frozen", 10);
+INSERT INTO grocery_store VALUES (12, "canned peaches", 2, "canned", 3);
+INSERT INTO grocery_store VALUES (13, "sausage", 3, "meat", 6);
+INSERT INTO grocery_store VALUES (14, "cheese", 4, "dairy", 7);
+INSERT INTO grocery_store VALUES (15, "lettuce", 1, "veggies", 2);
+
+/*Select all from grocery_store table ordered by price*/
+Select * 
+FROM grocery_store 
+    ORDER BY price;
+
+/* Select highest priced item from grocery_store table*/
+
+Select MAX(price) AS highest_priced 
+FROM grocery_store;
+
+/* Average price per category from grocery_store table*/
+
+SELECT category, ROUND(AVG(price)) AS average_price 
+FROM grocery_store
+Group BY category;
