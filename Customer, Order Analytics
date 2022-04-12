@@ -159,3 +159,26 @@ ORDER BY
   DESC 
 LIMIT 1
 ;
+
+--The account numbers, the count of order IDs, product, quantity, price, order date, and location for all orders that were placed in February.
+
+SELECT
+    customers.acctnum,
+    count(customers.order_id) as orders,
+    febsales.product,
+    febsales.quantity,
+    febsales.price,
+    febsales.orderdate,
+    febsales.location
+FROM
+    customers
+    INNER JOIN febsales
+    ON customers.order_ID = febsales.orderid
+
+GROUP BY 
+  febsales.product,
+  febsales.quantity,
+  febsales.price,
+  febsales.orderdate,
+  febsales.location
+;
